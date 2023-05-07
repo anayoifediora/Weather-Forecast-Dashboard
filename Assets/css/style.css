@@ -6,8 +6,9 @@
     
 }
 .card {
-    background-color:lightcyan;
+    background-color:rgb(100, 114, 155);
     margin: 10px;
+    color:white;
     
 }
 .temperature, .wind, .humidity {
@@ -20,17 +21,21 @@
     left:350px;
 }
 .current-weather {
-    background-color:rgb(241, 235, 235);
-    width:600px;
+    background-color:rgb(100, 114, 155);
+    width:75%;
     height:fit-content;
-    border-radius: 10px;
     position:relative;
-    left:600px;
+    left:360px;
+    color:white;
     
 }
 .current-weather * {
-    margin: 15px;
+    margin: 5px;
+    padding:10px;
 
+}
+.current-weather p {
+    font-size:20px;
 }
 
 .search-container {
@@ -38,7 +43,7 @@
     width:300px;
     display:inline-block;
     position:relative;
-    bottom:600px;
+    bottom:750px;
     background-color: lightgray;
     height:500px;
     text-align: center;

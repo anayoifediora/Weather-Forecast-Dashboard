@@ -37,8 +37,8 @@
     <main>
         <!--Current Date display container-->
         <div class ="current-weather">
-            <h3 class="current-city"></h3>
-            <img class="weather-icon" src="">
+            <h3 class="current-city"></h3><p class="date"></p>
+            <img class="weather-icon" src=""><span class="description"></span>
             <p class="current-temp">Temp:</p>
             <p class="current-wind">Wind:</p>
             <p class="current-humidity">Humidity:</p>
@@ -108,10 +108,10 @@
         </div>
         <!--Search for city container-->
         <div class="search-container">
-            <form>
+            <form class="form">
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label" style="font-size: 20px;">Search for a City!</label>
-                  <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style="margin:5px; width:250px;">
+                  <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder = "search..." style="margin:5px; width:250px;">
                   
                 </div>
                 
@@ -123,6 +123,7 @@
     <footer>
         
     </footer>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
 <script src="./Assets/js/index.js"></script>    
 </body>
 </html>
