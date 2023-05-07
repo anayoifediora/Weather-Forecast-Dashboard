@@ -20,7 +20,7 @@
     left:350px;
 }
 .current-weather {
-    background-color:lightgray;
+    background-color:rgb(241, 235, 235);
     width:600px;
     height:fit-content;
     border-radius: 10px;
