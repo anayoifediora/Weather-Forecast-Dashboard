@@ -2,7 +2,7 @@
     margin:20px;
 }
 .card-body {
-    padding:20px;
+    padding:10px;
     
 }
 .card {
@@ -17,7 +17,7 @@
 .forecast-container {
     display:inline;
     position:relative;
-    left:300px;
+    left:350px;
 }
 .current-weather {
     background-color:lightgray;
@@ -31,4 +31,17 @@
 .current-weather * {
     margin: 15px;
 
+}
+
+.search-container {
+    margin:5px;
+    width:300px;
+    display:inline-block;
+    position:relative;
+    bottom:600px;
+    background-color: lightgray;
+    height:500px;
+    text-align: center;
+    
+    
 }
