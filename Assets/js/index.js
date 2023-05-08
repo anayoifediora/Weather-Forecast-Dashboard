@@ -23,7 +23,7 @@ var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Adelaide&uni
     console.log(data);
     currentCity.textContent = data.name;
     weatherImageDescription.textContent = data.weather[0].description;
-    currentTemperature.textContent = "Temperature: " + data.main.temp + " Celsius";
+    currentTemperature.textContent = "Temperature: " + Math.ceil(data.main.temp) + " Celsius";
     currentWindSpeed.textContent = "Wind Speed: " + data.wind.speed;
     currentHumidity.textContent = "Humidity: " + data.main.humidity;
     weatherImage.setAttribute("src", 'https://openweathermap.org/img/w/' + data.weather[0].icon + '.png');
