@@ -43,10 +43,22 @@
     width:300px;
     display:inline-block;
     position:relative;
-    bottom:750px;
+    bottom:625px;
     background-color: lightgray;
     height:500px;
     text-align: center;
     
     
+}
+.forecast-description {
+    margin-left: 5px;
+    
+    
+}
+
+.forecast-icon {
+    height:80px;
+    
+    margin-bottom: 0px;
+
 }
