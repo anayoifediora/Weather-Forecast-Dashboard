@@ -10,10 +10,11 @@ var formInputEl = document.querySelector('.form-control');
 
 // currentDate.textContent = dayjs().format('DD/MM/YYYY');
 
+let cityName = formInputEl.value.trim();
 
-function getCurrentWeather() {
+function getCurrentWeather(cityName) {
 
-var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Adelaide&units=metric&appid=443ce9d7f610c028f54310f3c2bc25fd'
+var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=metric&appid=443ce9d7f610c028f54310f3c2bc25fd'
 
     fetch(requestUrl)
     .then(function (response) {
@@ -34,10 +35,10 @@ var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Adelaide&uni
 
 function formSubmitHandler(event) {
     event.preventDefault();
-    var searchName = formInputEl.value.trim();
+    let cityName = formInputEl.value.trim();
     
-    if (searchName) {
-        getCurrentWeather();
+    if (cityName) {
+        getCurrentWeather(cityName);
     } else {
         alert('Please enter a city name');
     }

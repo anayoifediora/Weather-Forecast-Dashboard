@@ -21,7 +21,7 @@
     left:350px;
 }
 .current-weather {
-    background-color:rgb(100, 114, 155);
+    background-color:rgb(100, 114, 155, 0.8);
     width:75%;
     height:fit-content;
     position:relative;
