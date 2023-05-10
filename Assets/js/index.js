@@ -20,17 +20,22 @@ let requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName
     .then(function (response) {
     return response.json();
     })
-    .then(function (data) {
-    // console.log(data);
-    currentCity.textContent = data.name;
-    weatherImageDescription.textContent = data.weather[0].description;
-    currentTemperature.textContent = "Temperature: " + Math.floor(data.main.temp) + " °C";
-    currentWindSpeed.textContent = "Wind Speed: " + data.wind.speed;
-    currentHumidity.textContent = "Humidity: " + data.main.humidity + "%";
-    weatherImage.setAttribute("src", 'https://openweathermap.org/img/w/' + data.weather[0].icon + '.png');
-    }
-    );
+        .then(function (data) {
+        console.log(data);
+        currentCity.textContent = data.name;
+        weatherImageDescription.textContent = data.weather[0].description;
+        currentTemperature.textContent = "Temperature: " + Math.floor(data.main.temp) + " °C";
+        currentWindSpeed.textContent = "Wind Speed: " + data.wind.speed;
+        currentHumidity.textContent = "Humidity: " + data.main.humidity + "%";
+        weatherImage.setAttribute("src", 'https://openweathermap.org/img/w/' + data.weather[0].icon + '.png');
 
+        
+        console.log(data.coord.lat);
+        console.log(data.coord.lon);
+
+        }
+        );
+    
     let forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&units=metric&appid=443ce9d7f610c028f54310f3c2bc25fd'
 
     fetch(forecastUrl)
@@ -41,39 +46,34 @@ let requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName
     console.log(data);
 
             // Dom elements for the 5-day forecast
+            
+                var forecastDate = document.querySelectorAll('.card-title')
+                var nameOfCity = document.querySelectorAll('.card-subtitle');
+                var forecastIcon = document.querySelectorAll('.forecast-icon');
+                var forecastDescription = document.querySelectorAll('.forecast-description');
+                var forecastTemperature = document.querySelectorAll('.temperature');
+                var forecastWindSpeed = document.querySelectorAll('.wind');
+                var forecastHumidity = document.querySelectorAll('.humidity');
 
-            var forecastDate = document.querySelector('.card-title')
-            var nameOfCity = document.querySelector('.card-subtitle');
-            var forecastIcon = document.querySelector('.forecast-icon');
-            var forecastDescription = document.querySelector('.forecast-description');
-            var forecastTemperature = document.querySelector('.temperature');
-            var forecastWindSpeed = document.querySelector('.wind');
-            var forecastHumidity = document.querySelector('.humidity');
+                foreCastArray = [data.list[7], data.list[15], data.list[23], data.list[31], data.list[39]]
 
-
-
-                forecastDate.textContent = data.list[7].dt_txt;
-                nameOfCity.textContent = cityName;
-                forecastIcon.setAttribute('src', 'https://openweathermap.org/img/w/' + data.list[7].weather[0].icon + '.png');
-                forecastDescription.textContent = data.list[7].weather[0].description;
-                forecastTemperature.textContent = "Temperature: " + Math.floor(data.list[7].main.temp) + " °C";
-                forecastWindSpeed.textContent = "Wind Speed: " + data.list[7].wind.speed;
-                forecastHumidity.textContent = "Humidity: " + data.list[7].main.humidity + "%";
-
-
-
-
+                    for (var i = 0; i < foreCastArray.length; i++) {
+                               
+                    forecastDate[i].textContent = foreCastArray[i].dt_txt;
+                    nameOfCity[i].textContent = cityName;
+                    forecastIcon[i].setAttribute('src', 'https://openweathermap.org/img/w/' + foreCastArray[i].weather[0].icon + '.png');
+                    forecastDescription[i].textContent = foreCastArray[i].weather[0].description;
+                    forecastTemperature[i].textContent = "Temperature: " + Math.floor(foreCastArray[i].main.temp) + " °C";
+                    forecastWindSpeed[i].textContent = "Wind Speed: " + foreCastArray[i].wind.speed;
+                    forecastHumidity[i].textContent = "Humidity: " + foreCastArray[i].main.humidity + "%";
+                }
         }
-    
+
+
+     
+
     );
 }
-
-
-
-
-
-
-    
 
 
 function formSubmitHandler(event) {
@@ -87,7 +87,6 @@ function formSubmitHandler(event) {
     }
 
 };
-
 
 form.addEventListener('submit', formSubmitHandler)
     
