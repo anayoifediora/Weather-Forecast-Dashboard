@@ -8,15 +8,6 @@ var currentDate = document.querySelector('.date');
 var form = document.querySelector('form');
 var formInputEl = document.querySelector('.form-control');
 
-// Dom elements for the 5-day forecast
-var forecastDate = document.querySelector('.card-title')
-var nameOfCity = document.querySelector('.card-subtitle');
-var forecastIcon = document.querySelector('.forecast-icon');
-var forecastDescription = document.querySelector('.forecast-description');
-var forecastTemperature = document.querySelector('.temperature');
-var forecastWindSpeed = document.querySelector('.wind');
-var forecastHumidity = document.querySelector('.humidity');
-
 // currentDate.textContent = dayjs().format('DD/MM/YYYY');
 
 let cityName = formInputEl.value.trim();
@@ -49,20 +40,33 @@ let requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName
     .then(function (data) {
     console.log(data);
 
-        forecastDate.textContent = data.list[7].dt_txt;
-        nameOfCity.textContent = cityName;
-        forecastIcon.setAttribute('src', 'https://openweathermap.org/img/w/' + data.list[7].weather[0].icon + '.png');
-        forecastDescription.textContent = data.list[7].weather[0].description;
-        forecastTemperature.textContent = "Temperature: " + Math.floor(data.list[7].main.temp) + " °C";
-        forecastWindSpeed.textContent = "Wind Speed: " + data.list[7].wind.speed;
-        forecastHumidity.textContent = "Humidity: " + data.list[7].main.humidity + "%";
+            // Dom elements for the 5-day forecast
 
-    }
+            var forecastDate = document.querySelector('.card-title')
+            var nameOfCity = document.querySelector('.card-subtitle');
+            var forecastIcon = document.querySelector('.forecast-icon');
+            var forecastDescription = document.querySelector('.forecast-description');
+            var forecastTemperature = document.querySelector('.temperature');
+            var forecastWindSpeed = document.querySelector('.wind');
+            var forecastHumidity = document.querySelector('.humidity');
+
+
+
+                forecastDate.textContent = data.list[7].dt_txt;
+                nameOfCity.textContent = cityName;
+                forecastIcon.setAttribute('src', 'https://openweathermap.org/img/w/' + data.list[7].weather[0].icon + '.png');
+                forecastDescription.textContent = data.list[7].weather[0].description;
+                forecastTemperature.textContent = "Temperature: " + Math.floor(data.list[7].main.temp) + " °C";
+                forecastWindSpeed.textContent = "Wind Speed: " + data.list[7].wind.speed;
+                forecastHumidity.textContent = "Humidity: " + data.list[7].main.humidity + "%";
+
+
+
+
+        }
+    
     );
 }
-
-
-
 
 
 

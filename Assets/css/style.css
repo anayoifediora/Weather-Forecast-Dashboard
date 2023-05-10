@@ -1,3 +1,15 @@
+* {
+    font-family: 'Figtree', sans-serif;
+}
+
+header {
+    background-color: rgb(100, 114, 155);
+}
+a {
+    
+    font-weight: bold;
+}
+
 .forecast-container  {
     margin:20px;
 }
@@ -16,34 +28,37 @@
     margin-bottom: 15px;
 }
 .forecast-container {
-    display:inline;
+    /* display:none; */
     position:relative;
     left:350px;
+    bottom:500px;
+
 }
 .current-weather {
-    background-color:rgb(100, 114, 155, 0.8);
+    background-color:rgb(100, 114, 155);
     width:75%;
     height:fit-content;
+    /* display:none; */
     position:relative;
-    left:360px;
+    left:350px; 
+    bottom:500px; 
     color:white;
     
 }
 .current-weather * {
     margin: 5px;
-    padding:10px;
+    padding:10px;  
 
 }
 .current-weather p {
     font-size:20px;
+    font-weight: bold;
+    
 }
 
 .search-container {
     margin:5px;
     width:300px;
-    display:inline-block;
-    position:relative;
-    bottom:625px;
     background-color: lightgray;
     height:500px;
     text-align: center;
@@ -56,9 +71,20 @@
     
 }
 
-.forecast-icon {
+.forecast-icon, .weather-icon {
     height:80px;
     
     margin-bottom: 0px;
 
+}
+
+@media  screen and (max-width: 992px) {
+   .current-weather {
+    width:350px;
+
+   } 
+   .navbar-nav {
+    display:flex;
+
+   }
 }
