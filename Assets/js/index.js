@@ -7,6 +7,8 @@ var weatherImageDescription = document.querySelector('.description');
 var currentDate = document.querySelector('.date');
 var form = document.querySelector('form');
 var formInputEl = document.querySelector('.form-control');
+var cityListDiv = document.querySelector('.d-grid');
+
 
 // currentDate.textContent = dayjs().format('DD/MM/YYYY');
 
@@ -30,9 +32,6 @@ let requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName
         weatherImage.setAttribute("src", 'https://openweathermap.org/img/w/' + data.weather[0].icon + '.png');
 
         
-        console.log(data.coord.lat);
-        console.log(data.coord.lon);
-
         }
         );
     
@@ -60,7 +59,7 @@ let requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName
                     for (var i = 0; i < foreCastArray.length; i++) {
                                
                     forecastDate[i].textContent = foreCastArray[i].dt_txt;
-                    nameOfCity[i].textContent = cityName;
+                    // nameOfCity[i].textContent = cityName;
                     forecastIcon[i].setAttribute('src', 'https://openweathermap.org/img/w/' + foreCastArray[i].weather[0].icon + '.png');
                     forecastDescription[i].textContent = foreCastArray[i].weather[0].description;
                     forecastTemperature[i].textContent = "Temperature: " + Math.floor(foreCastArray[i].main.temp) + " °C";
@@ -68,13 +67,18 @@ let requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName
                     forecastHumidity[i].textContent = "Humidity: " + foreCastArray[i].main.humidity + "%";
                 }
         }
-
-
-     
-
+   
     );
+    displayWeatherInfo(cityName);
 }
 
+function displayWeatherInfo(cityName) {
+    var cityButton = document.createElement('button');
+    cityButton.setAttribute('class', 'btn btn-primary');
+    cityButton.textContent = cityName
+    cityListDiv.appendChild(cityButton);
+
+}
 
 function formSubmitHandler(event) {
     event.preventDefault();

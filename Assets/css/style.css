@@ -78,6 +78,10 @@ a {
 
 }
 
+.d-grid {
+    margin-top: 30px;
+}
+
 footer {
     background-color: rgb(100, 114, 155);
     display:flex;
