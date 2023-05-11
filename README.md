@@ -18,6 +18,6 @@ The following image displays the functionality of the application:
 ## Link to page
 
 The link to the page can be found below
-![Webpage](https://anayoifediora.github.io/Workday-Scheduler/)
+![Webpage](https://anayoifediora.github.io/Weather-Forecast-Dashboard/)
 
     
