@@ -21,7 +21,7 @@ let cityName = formInputEl.value.trim();
 
 function getCurrentWeather(cityName) {
 
-        let requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=metric&appid=443ce9d7f610c028f54310f3c2bc25fd'
+        let requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=imperial&appid=443ce9d7f610c028f54310f3c2bc25fd'
 
             fetch(requestUrl)
             .then(function (response) {
@@ -33,8 +33,8 @@ function getCurrentWeather(cityName) {
                         
                         currentCity.textContent = data.name;
                         weatherImageDescription.textContent = data.weather[0].description;
-                        currentTemperature.textContent = "Temperature: " + Math.floor(data.main.temp) + " °C";
-                        currentWindSpeed.textContent = "Wind Speed: " + data.wind.speed;
+                        currentTemperature.textContent = "Temperature: " + Math.floor(data.main.temp) + " °F";
+                        currentWindSpeed.textContent = "Wind Speed: " + data.wind.speed + "mph";
                         currentHumidity.textContent = "Humidity: " + data.main.humidity + "%";
                         weatherImage.setAttribute("src", 'https://openweathermap.org/img/w/' + data.weather[0].icon + '.png');
                         
@@ -53,7 +53,7 @@ function getCurrentWeather(cityName) {
                 }
                 );
             
-            let forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&units=metric&appid=443ce9d7f610c028f54310f3c2bc25fd'
+            let forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&units=imperial&appid=443ce9d7f610c028f54310f3c2bc25fd'
 
             fetch(forecastUrl)
             .then(function (response) {
@@ -81,8 +81,8 @@ function getCurrentWeather(cityName) {
                             // nameOfCity[i].textContent = cityName;
                             forecastIcon[i].setAttribute('src', 'https://openweathermap.org/img/w/' + foreCastArray[i].weather[0].icon + '.png');
                             forecastDescription[i].textContent = foreCastArray[i].weather[0].description;
-                            forecastTemperature[i].textContent = "Temperature: " + Math.floor(foreCastArray[i].main.temp) + " °C";
-                            forecastWindSpeed[i].textContent = "Wind Speed: " + foreCastArray[i].wind.speed;
+                            forecastTemperature[i].textContent = "Temperature: " + Math.floor(foreCastArray[i].main.temp) + " °F";
+                            forecastWindSpeed[i].textContent = "Wind Speed: " + foreCastArray[i].wind.speed + "mph";
                             forecastHumidity[i].textContent = "Humidity: " + foreCastArray[i].main.humidity + "%";
                         }
                 }
@@ -116,7 +116,6 @@ function formSubmitHandler(event) {
 
 
 form.addEventListener('submit', formSubmitHandler)
-
 
 
 
