@@ -28,7 +28,7 @@ a {
     margin-bottom: 15px;
 }
 .forecast-container {
-    /* display:none; */
+    display:none;
     position:relative;
     left:350px;
     bottom:500px;
@@ -38,7 +38,7 @@ a {
     background-color:rgb(100, 114, 155);
     width:75%;
     height:fit-content;
-    /* display:none; */
+    display:none;
     position:relative;
     left:350px; 
     bottom:500px; 
@@ -88,17 +88,6 @@ footer {
     align-items:center;
 }
 
-footer h3 {
-    padding:30px;
-}
-.contact-details {
-    display:flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    color:white;
-
-}
-
 .contact-details li {
     list-style: none;
     margin:20px;
@@ -113,5 +102,13 @@ footer h3 {
    .navbar-nav {
     display:flex;
 
+   }
+   .main {
+    display:flex;
+    flex-direction: column;
+   }
+   .forecast-container {
+    display:flex;
+    
    }
 }
